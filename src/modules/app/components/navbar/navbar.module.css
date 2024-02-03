@@ -1,0 +1,11 @@
+.navbar {
+    color: #fff;
+    padding: 2rem;
+    min-height: 2rem;
+
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
