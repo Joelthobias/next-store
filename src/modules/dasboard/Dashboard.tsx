@@ -2,6 +2,7 @@ import style from './dashboard.module.css'
 
 import React, { useEffect, useState } from 'react'
 import { fetchProducts } from './services/fetchProducts'
+import { Navbar } from '../app/components/navbar/navbar';
 interface Product{
     id: number;
     title: string;
@@ -37,6 +38,7 @@ export const Dashboard = () => {
     },[])
   return (
     <div>
+        <Navbar/>
         {err ? 
         err
         :
@@ -44,17 +46,12 @@ export const Dashboard = () => {
             <div className={style.row}>
                 {products&& products.length>0?(
                     products.map((product)=>(
-                        <div key={product.title} className={style.card}>
+                        <div onClick={()=>window.location.href = `/product/${product.id}`} key={product.title} className={style.card}>
                             <img src={product.image} alt={product.title} className={style.card_image} />
                             <div className={style.card_content}>
                                 <h2 className={style.card_title}>{product.title}</h2>
-                                <p className={style.card_description}>{product.description}</p>
-                                <p className={style.card_price}>${product.price}</p>
-                                <p className={style.card_category}>{product.category}</p>
-                                <div className={style.card_rating}>
-                                    <span className={style.card_rating_rate}>{product.rating.rate}</span>
-                                    <span className={style.card_rating_count}>{product.rating.count}</span>
-                                </div>
+                                <h3 className={style.card_price}>Price : ${product.price}</h3>
+                                
                             </div>
                         </div>
                     ))

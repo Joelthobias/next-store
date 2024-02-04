@@ -13,12 +13,16 @@
 }
 
 .card {
-    width: 30%;
+    width: 20%;
 
 }
 
 .card img {
     height: 16rem;
     width: 100%;
+    padding: 0 2rem;
     object-fit: contain;
+}
+.card_content h2 ,.card_price{
+    padding: 2rem;
 }
